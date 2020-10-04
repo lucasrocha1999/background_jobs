@@ -1,0 +1,24 @@
+{
+  "name": "background_jobs",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "repository": "https://github.com/lucasrocha1999/background_jobs.git",
+  "author": "Lucas <lucasrocha446@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "npm-run-all -p dev:*",
+    "dev:server": "nodemon",
+    "dev:queue": "nodemon src/queue.js"
+  },
+  "dependencies": {
+    "bull": "^3.18.0",
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.13"
+  },
+  "devDependencies": {
+    "dotenv": "^8.2.0",
+    "nodemon": "^2.0.4",
+    "npm-run-all": "^4.1.5",
+    "sucrase": "^3.15.0"
+  }
+}
