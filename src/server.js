@@ -1,12 +1,20 @@
 import 'dotenv/config';
+
 import express from 'express';
+import BullBoard from 'bull-board';
+
 import routes from './routes';
+import Queue from './app/lib/Queue';
 
 const app =  express();
 
 app.use(express.json());
 
+BullBoard.setQueues(Queue.queues.map(queue => queue.bull));
+
 app.use(routes);
+
+app.use('/admin/queues', BullBoard.UI);
 
 app.listen(3333, () => {
     console.log('Server running on localhost:3333');
